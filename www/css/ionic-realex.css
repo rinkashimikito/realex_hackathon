@@ -59,6 +59,10 @@
     margin-top: 10px;
 }
 
+.results-list .item p {
+    white-space: normal;
+}
+
 .results-list .item:first-child {
     /*border-top: 0;*/
     margin-top: 0;
