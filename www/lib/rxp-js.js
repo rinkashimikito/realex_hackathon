@@ -23,7 +23,7 @@ var RealexHpp = (function() {
 	var isMobileIFrame = isWindowsMobileOs;
     
 	// For IOs/Android and small screen devices always open in new tab/window
-	var isMobileNewTab = !isWindowsMobileOs && (isAndroidOrIOs || isMobileXS);
+	var isMobileNewTab = false;
 	var tabWindow;
 	
 	// Initialising some variables used throughout this file.
