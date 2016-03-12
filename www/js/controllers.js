@@ -23,6 +23,7 @@ angular.module ( 'app.controllers', [] )
         $rootScope.productList = data;
         $state.go('menu.results');
 
+        // TODO add response validation
         //if (!data.success) {
         //  // if not successful, bind errors to error variables
         //  $scope.errorName = data.errors.name;
@@ -41,15 +42,22 @@ angular.module ( 'app.controllers', [] )
 
   } )
 
-  .controller ( 'resultsCtrl', function ( $scope ) {
+  .controller ( 'resultsCtrl', function ( $scope, $state, $rootScope, productService ) {
     $scope.goToProduct = function(productId){
-      $rootScope.selectedProduct = productId;
+      var selectedProduct = $rootScope.productList.filter(function (item) {
+        return item.id == productId;
+      });
+
+      productService.setProduct(selectedProduct);
+
       $state.go('menu.product');
     }
   } )
 
-  .controller ( 'productCtrl', function ( $scope ) {
+  .controller ( 'productCtrl', function ( $scope, $state, $rootScope, productService ) {
+  $scope.selectedProduct = productService.getProduct();
 
+    console.log('productCtrl: ', $scope.selectedProduct);
   } )
 
   .controller ( 'aboutUsCtrl', function ( $scope ) {

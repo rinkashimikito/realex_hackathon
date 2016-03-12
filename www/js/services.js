@@ -23,7 +23,22 @@ angular.module ( 'app.services', [] )
       }
   } )
 
-  .service ( 'BlankService', [function () {
+  .service('productService', function() {
+    var product = {};
 
-  }] );
+    var setProduct = function(newObj) {
+      //var product = {};
 
+      product = newObj;
+    };
+
+    var getProduct = function(){
+      return product;
+    };
+
+    return {
+      setProduct: setProduct,
+      getProduct: getProduct
+    };
+
+  });
