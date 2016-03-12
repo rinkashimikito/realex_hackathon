@@ -12,7 +12,7 @@
                 <!--<span class="list-price">{{selectedProduct['0'].priceDay * numberOfDays}}<br /><span class="under-text">overall price</span></span>-->
             </a>
             <!--<a class="button" ng-click="openModal()">Show all photos</a>-->
-            <div class="item item-text-wrap">Renting for {{numberOfDays}} day(s) for total £{{selectedProduct['0'].priceDay * numberOfDays}}</div>
+            <div class="item item-text-wrap">Renting for {{numberOfDays}} day(s) for total £{{selectedProduct['0'].priceDay * numberOfDays | number : 2}}</div>
             <!--<br />-->
             <!--<div class="item item-text-wrap">{{selectedProduct['0'].description}}</div>-->
 
