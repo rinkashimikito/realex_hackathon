@@ -1,6 +1,7 @@
 angular.module ( 'app.controllers', [] )
 
-  .controller ( 'searchCtrl', function ( $scope, categories, $state, $http, $rootScope, dateService ) {
+  .controller ( 'searchCtrl', function ( $scope, categories, $state, $http, $rootScope, dateService, $ionicHistory ) {
+  $ionicHistory.clearHistory();
   $scope.categories = categories;
   $scope.location = '';
   $scope.rating = {};
