@@ -6,6 +6,6 @@
   },
   "dependencies": {
     "angular-google-places-autocomplete": "^0.2.7",
-    "ionic-cache-src": "^0.7.1"
+    "robotodraft": "^1.1.0"
   }
 }
