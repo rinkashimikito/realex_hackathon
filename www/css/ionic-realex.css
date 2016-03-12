@@ -216,3 +216,42 @@ p.info {
     list-style: decimal;
     margin: 10px 0px;
 }
+
+#logo {
+    background-image: url('../img/borro-logo.fw.png');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 78%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -30%;
+    z-index: -1;
+}
+
+.point1 {
+    background-image: url('../img/pointing-2.png');
+    background-position: 58% 28%;
+    background-repeat: no-repeat;
+    background-size: 96%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    -ms-transform: rotate(-7deg);
+    -webkit-transform: rotate(-7deg);
+    transform: rotate(-7deg);
+
+ }
+
+.point2 {
+    background-image: url('../img/pointing-1.png');
+    background-position: -10% 24%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+
+}

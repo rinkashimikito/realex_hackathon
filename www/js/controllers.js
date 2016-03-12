@@ -133,7 +133,7 @@ angular.module ( 'app.controllers', [] )
   else {
     setTimeout ( function () {
       navigator.splashscreen.hide ();
-    }, 750 );
+    }, 10 );
   }
 
 
