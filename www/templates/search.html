@@ -1,0 +1,36 @@
+<ion-view title="Search">
+    <ion-content overflow-scroll="true" padding="false" class="has-header">
+        <form class="list form-search" name="searchForm">
+            <label class="item item-input" name="product_name">
+                <span class="input-label">Search</span>
+                <input type="text" placeholder="What would you like?" ng-model="searchString" list="comicstitle" required>
+                <datalist id="comicstitle">
+                    <option  data-ng-repeat="ttl in categories" value="{{ttl}}">
+                </datalist>
+            </label>
+
+            <label class="item item-input" name="product_start_date">
+                <span class="input-label">Start Date</span>
+                <input type="date" placeholder="" ng-model="startDate" >
+            </label>
+
+            <label class="item item-input" name="product_end_date">
+                <span class="input-label">End Date</span>
+                <input type="date" placeholder="" ng-model="endDate" >
+            </label>
+
+            <label class="item item-input" name="product_name">
+                <!--<ion-google-place placeholder="Enter an address, Apt# and ZIP" ng-model="location" current-location="true"/>-->
+                <!--<input type="text" placeholder="Enter a location" required>-->
+                <!--<input type="text" id="Autocomplete" class="form-control" ng-autocomplete="result" details="details" options="options" placeholder="Enter a location" required/>-->
+                <input type="text" g-places-autocomplete ng-model="location"placeholder="Enter an address, Apt# and ZIP"  />
+            </label>
+
+            <div style="margin-right:-20px;">
+                <button id="search-button2" style="margin-left:-10px;font-weight:bold;position: absolute; bottom: 0; margin: 0"
+                   class="button button-balanced button-large button-full" ng-click="submitSearch(searchString,startDate,endDate,location )"
+                        ng-disabled="searchForm.$invalid">Search</button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

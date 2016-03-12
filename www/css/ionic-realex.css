@@ -1,0 +1,90 @@
+.form-search {
+    height: 100%;
+    min-height: 100%;
+}
+
+/* AUTOCOMPLETE */
+
+.autocomplete{
+    width: 100%;
+    position: relative;
+}
+
+.autocomplete input{
+    font-size: 1.2em;
+    width: 100%;
+    padding:0.4em;
+}
+
+.autocomplete ul{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    border-left: 1px solid #888;
+    border-right: 1px solid #888;
+    border-bottom: 1px solid #888;
+    z-index: 1;
+}
+
+.autocomplete li{
+    text-align: left;
+    list-style:none;
+    width: 100%;
+    padding:0.4em;
+    background-color: #fff;
+}
+
+.autocomplete li.active{
+    width: 100%;
+    background-color: #4bf;
+}
+
+.autocomplete .highlight {
+    background-color: #E2E2E2;
+}
+
+.autocomplete li.active .highlight {
+    background: #666;
+    color: #fff;
+}
+
+.results-list .item {
+    /*border-top: 1px solid #ddd;*/
+    margin-top: 10px;
+}
+
+.results-list .item:first-child {
+    /*border-top: 0;*/
+    margin-top: 0;
+}
+
+.results-list items img {
+
+}
+
+.results-list items h2 {}
+.results-list items p {}
+.results-list .list-price {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.results-list h2 {
+    font-weight: 500;
+}
+
+.results-list .under-text {
+    clear: both;
+    float: left;
+    font-size: 0.7em;
+    line-height: 0.7em;
+    font-weight: 400;
+}
+
+.results-list .list-location {
+    position: absolute;
+    bottom: 2px;
+}

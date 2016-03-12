@@ -1,0 +1,15 @@
+<ion-view title="Results">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <div class="list results-list">
+                <a class="item item-thumbnail-left" ng-click="goToProduct(item.id)" ng-repeat="item in productList">
+                    <img src="{{item.image1}}">
+
+                    <h2>{{item.name}}</h2>
+
+                    <p>{{item.description}}</p>
+                    <p class="list-location">{{item.postCode}}, {{item.city}}, {{item.countryCode}}</p>
+                    <span class="list-price">{{item.priceDay}}<br /><span class="under-text">price per day</span></span>
+                </a>
+        </div>
+    </ion-content>
+</ion-view>
