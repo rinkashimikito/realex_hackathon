@@ -23,6 +23,8 @@ var RealexHpp = (function() {
 	var isMobileIFrame = isWindowsMobileOs;
     
 	// For IOs/Android and small screen devices always open in new tab/window
+	//var isMobileNewTab = !isWindowsMobileOs && (isAndroidOrIOs || isMobileXS);
+	// TODO forcing modal
 	var isMobileNewTab = false;
 	var tabWindow;
 	
@@ -106,6 +108,8 @@ var RealexHpp = (function() {
 					}
 					
 					closeButton.addEventListener("click", closeModal, true);
+					// TODO another hack
+					overlayElement.addEventListener("click", closeModal, true);
 					overlayElement.appendChild(closeButton);
 				}
 			}
@@ -333,7 +337,7 @@ var RealexHpp = (function() {
 				// check for iframe resize values 
 				if (event.data && JSON.parse(event.data).iframe) {
 					if(!isMobileNewTab){
-						var iframeWidth = JSON.parse(event.data).iframe.width;
+						var iframeWidth = JSON.parse(event.data).iframe.width -100;
 						var iframeHeight = JSON.parse(event.data).iframe.height;
 						
 						var iFrame = document.getElementById("rxp-frame-" + randomId);
