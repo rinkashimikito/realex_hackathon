@@ -1,11 +1,11 @@
-<ion-view title="">
+<ion-view title="Confirmation">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <div class="list results-list" style="margin-bottom: 8px">
             <img ng-src="{{selectedProduct['0'].images[0].src}}" ng-click="openModal()" style="width: 100%; text-align: center">
             <a class="item ng-click="goToProfile(item.ownerId)">
                 <!--<img ng-src="{{selectedProduct['0'].images[0].src}}" ng-click="openModal()">-->
 
-                <h2>{{selectedProduct['0'].name}}</h2>
+                <h2>You will rent: {{selectedProduct['0'].name}}</h2>
                 <!--<p>{{item.description}}</p>-->
                 <!--<rating ng-model="selectedProduct['0'].rating" max="10" readonly="readOnly"></rating>-->
                 <p class="list-location" style="position:static">{{selectedProduct['0'].postCode}}, {{selectedProduct['0'].city}}, {{selectedProduct['0'].countryCode}}</p>

@@ -1,5 +1,21 @@
 <ion-view title="Verification">
+<div id="verification" style="width: 100%; height: 100%; margin-top: 38px; margin-bottom: 30px"></div>
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <a ui-sref="menu.payment" id="verification-button7" class="button button-balanced  button-block">Verify me</a>
+        <a ui-sref="menu.payment" id="verification-button7" class="button button-balanced  button-block" style="position: absolute; bottom: 10px; width: 95%">Verify me</a>
+
+        <script type="application/javascript">
+    $(function () {
+    var veridu = new Veridu({
+      client: '0b92117236ac6465958b049c3bc6dcb0aa16295b',
+      session: '60bbcaf4600abd485e1e51f463da2ad06bab0aed353255cd70cb87a5f37df192',
+      language: 'en-us',
+      version: '0.3'
+    });
+    var cfg = {"aot":[],"oot":[],"opt":["facebook","linkedin","paypal","amazon","twitter","google","email","sms","spotafriend","cpr","nemid","personal"]};
+    var user = 'your-systems-user-id';
+    veridu.Widget.profile($('#verification'), user, cfg);
+  });
+  </script>
     </ion-content>
 </ion-view>
+
