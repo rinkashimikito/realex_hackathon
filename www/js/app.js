@@ -20,7 +20,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     }
 
       $ionicPlatform.registerBackButtonAction(function (event) {
-        if($state.current.name=="payment"){
+        if($state.current.name=="search"){
 
 
           var confirmPopup = $ionicPopup.confirm({

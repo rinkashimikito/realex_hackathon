@@ -2,7 +2,7 @@
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <div class="list results-list">
             <a class="item item-thumbnail-left" ng-click="goToProfile(item.ownerId)">
-                <img ng-src="{{selectedProduct['0'].images[0].src}}>
+                <img ng-src="{{selectedProduct['0'].images[0].src}}" ng-click="openModal()">
 
                 <h2>{{selectedProduct['0'].name}}</h2>
                 <button class="button icon-right ion-chevron-right button-balanced item-ask" ng-click="askForItem(selectedProduct['0'].id)">Ask</button>
