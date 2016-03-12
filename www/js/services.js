@@ -39,4 +39,24 @@ angular.module ( 'app.services', [] )
       getProduct: getProduct
     };
 
-  });
+  })
+
+  .service('dateService', function() {
+    var date = null;
+
+    var setDate = function(newDate) {
+      console.log('dateService set: ', newDate);
+      date = newDate;
+    };
+
+    var getDate = function(){
+      console.log('dateService get: ', date);
+      return date;
+    };
+
+    return {
+      setDate: setDate,
+      getDate: getDate
+    };
+
+  })

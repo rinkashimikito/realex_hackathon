@@ -2,18 +2,19 @@
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <div class="list results-list">
             <a class="item item-thumbnail-left" ng-click="goToProfile(item.ownerId)">
-                <img ng-src="{{item.image1}}">
+                <img ng-src="{{selectedProduct['0'].images[0].src}}>
 
                 <h2>{{selectedProduct['0'].name}}</h2>
                 <button class="button icon-right ion-chevron-right button-balanced item-ask" ng-click="askForItem(selectedProduct['0'].id)">Ask</button>
                 <!--<p>{{item.description}}</p>-->
                 <rating ng-model="selectedProduct['0'].rating" max="10" readonly="readOnly"></rating>
                 <p class="list-location">{{selectedProduct['0'].postCode}}, {{selectedProduct['0'].city}}, {{selectedProduct['0'].countryCode}}</p>
-                <span class="list-price">{{selectedProduct['0'].priceDay}}<br /><span class="under-text">price per day</span></span>
+                <span class="list-price">{{selectedProduct['0'].priceDay * numberOfDays}}<br /><span class="under-text">overall price</span></span>
 
             </a>
-            <a class="button" ng-click="openModal()">Show all photos</a>
-            <img class="full-image" ng-src="{{selectedProduct['0'].image2}}">
+            <!--<a class="button" ng-click="openModal()">Show all photos</a>-->
+            <br />
+            <!--<img class="full-image" ng-src="{{selectedProduct['0'].image2}}" ng-click="openModal()">-->
         </div>
         <!--<div class="list card">-->
             <!--<div class="item">-->

@@ -2,7 +2,7 @@
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <div class="list results-list">
                 <a class="item item-thumbnail-left animated fadeInLeft" ng-click="goToProduct(item.id)" ng-repeat="item in productList">
-                    <img ng-src="{{item.image1}}">
+                    <img ng-src="{{item.images[0].src}}">
 
                     <h2>{{item.name}}</h2>
 

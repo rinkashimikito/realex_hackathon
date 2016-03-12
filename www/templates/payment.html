@@ -1,6 +1,23 @@
 <ion-view title="Payment">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <button id="myPaymentButton">Clik to pay</button>
+        <div class="list results-list">
+            <a class="item item-thumbnail-left" ng-click="goToProfile(item.ownerId)">
+                <img ng-src=""{{selectedProduct['0'].images[0].src}}>
+
+                <h2>{{selectedProduct['0'].name}}</h2>
+                <!--<p>{{item.description}}</p>-->
+                <rating ng-model="selectedProduct['0'].rating" max="10" readonly="readOnly"></rating>
+                <p class="list-location">{{selectedProduct['0'].postCode}}, {{selectedProduct['0'].city}}, {{selectedProduct['0'].countryCode}}</p>
+                <span class="list-price">{{selectedProduct['0'].priceDay * numberOfDays}}<br /><span class="under-text">overall price</span></span>
+
+            </a>
+            <!--<a class="button" ng-click="openModal()">Show all photos</a>-->
+            <br />
+            <img class="full-image" ng-src="{{selectedProduct['0'].image2}}" ng-click="openModal()">
+        </div>
+        <!--<div class="bar bar-footer">-->
+            <button class="button button-balanced button-full" id="myPaymentButton">Confirm</button>
+        <!--</div>-->
         <!--<form class="list">-->
             <!--<label class="item item-input" name="card_name">-->
                 <!--<span class="input-label">Name:</span>-->

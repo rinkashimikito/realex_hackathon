@@ -1,6 +1,6 @@
 angular.module ( 'app.controllers', [] )
 
-  .controller ( 'searchCtrl', function ( $scope, categories, $state, $http, $rootScope ) {
+  .controller ( 'searchCtrl', function ( $scope, categories, $state, $http, $rootScope, dateService ) {
   $scope.categories = categories;
   $scope.location = '';
   $scope.rating = {};
@@ -14,6 +14,15 @@ angular.module ( 'app.controllers', [] )
   //}
 
   $scope.submitSearch = function ( item, startDate, endDate, location ) {
+    if (startDate && endDate) {
+      var day = 24*60*60*1000;
+      var numDays = Math.round(Math.abs((startDate.getTime() - endDate.getTime())/(day)));
+      dateService.setDate(numDays);
+
+    } else {
+      dateService.setDate('1');
+    }
+
     $http ( {
       method: 'GET',
       url: 'https://nkmdkkznbh.execute-api.us-west-2.amazonaws.com/integration/products/' + item,
@@ -58,18 +67,14 @@ angular.module ( 'app.controllers', [] )
 } )
 
 
-  .controller ( 'productCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate', '$state', '$rootScope', 'productService', function ($scope, $ionicModal, $ionicSlideBoxDelegate, $state, $rootScope, productService ) {
+  .controller ( 'productCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate', '$state', '$rootScope', 'productService','dateService', function ($scope, $ionicModal, $ionicSlideBoxDelegate, $state, $rootScope, productService, dateService ) {
     $scope.selectedProduct = productService.getProduct ();
-    $scope.aImages = [{
-      'src': 'http://ionicframework.com/img/ionic-logo-blog.png',
-      'msg': 'Swipe me to the left. Tap/click to close'
-    }, {
-      'src': 'http://ionicframework.com/img/ionic_logo.svg',
-      'msg': ''
-    }, {
-      'src': 'http://ionicframework.com/img/homepage/phones-weather-demo@2x.png',
-      'msg': ''
-    }];
+    $scope.numberOfDays = dateService.getDate() || 1;
+
+  console.log('productCtrl numberOfDays:', $scope.numberOfDays, $scope.selectedProduct);
+  console.log('productCtral images :', $scope.selectedProduct['0'].images);
+
+    $scope.aImages = $scope.selectedProduct['0'].images;
 
     $ionicModal.fromTemplateUrl ( 'image-modal.html', {
       scope: $scope,
@@ -143,8 +148,22 @@ angular.module ( 'app.controllers', [] )
   .controller ( 'paymentDetailsCtrl', function ( $scope ) {
 
 } )
+//  .controller ( 'productCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate', '$state', '$rootScope', 'productService','dateService', function ($scope, $ionicModal, $ionicSlideBoxDelegate, $state, $rootScope, productService, dateService ) {
+//  $scope.selectedProduct = productService.getProduct ();
+//
+//
+//  console.log('productCtrl numberOfDays:', $scope.numberOfDays, $scope.selectedProduct);
+//
+//  $scope.askForItem = function ( itemId ) {
+//    console.log ( 'productCtrl asking for: ', itemId );
+//    $state.go ( 'menu.verification' );
+//  }
+//}] )
 
-  .controller ( 'paymentCtrl', function ( $scope, $http ) {
+  .controller ( 'paymentCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate', '$state', '$rootScope', 'productService','$http', function ($scope, $ionicModal, $ionicSlideBoxDelegate, $state, $rootScope, productService, $http ) {
+  $scope.selectedProduct = productService.getProduct ();
+  console.log('paymentCtrl selectedProduct:', $scope.selectedProduct);
+
     $http.get('https://nkmdkkznbh.execute-api.us-west-2.amazonaws.com/integration/bookings/GBP/110').
       success(function(jsonFromServerSdk, status, headers, config) {
         //$scope.posts = data;
@@ -156,7 +175,7 @@ angular.module ( 'app.controllers', [] )
         // log error
       });
 
-} )
+} ])
 
   .controller ( 'verificationCtrl', function ( $scope ) {
 
@@ -171,6 +190,10 @@ angular.module ( 'app.controllers', [] )
 } )
 
   .controller ( 'almostThereCtrl', function ( $scope ) {
+
+} )
+
+  .controller ( 'myRentedItemsCtrl', function ( $scope ) {
 
 } )
  

@@ -129,6 +129,16 @@ angular.module ( 'app.routes', [] )
     }
   } )
 
+    .state ( 'menu.myRentedItems', {
+    url: '/my_rented_items',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/my_rented_items.html',
+        controller: 'myRentedItemsCtrl'
+      }
+    }
+  } )
+
     .state ( 'lentConfirmation', {
     url: '/confirmation_lent',
     templateUrl: 'templates/lentConfirmation.html',
