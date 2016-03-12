@@ -2,13 +2,13 @@
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <div class="list card">
             <div class="item item-avatar">
-                <img cache-src="{{selectedProduct['0'].image1}}" circle-container-style="display:inline-block;position:absolute;left:30px;">
+                <img ng-src="{{selectedProduct['0'].image1}}">
                 <h2>{{selectedProduct['0'].name}}</h2>
                 <p class="list-location">{{selectedProduct['0'].postCode}}, {{selectedProduct['0'].city}}, {{selectedProduct['0'].countryCode}}</p>
             </div>
 
             <div class="item item-body">
-                <img class="full-image" cache-src="{{selectedProduct['0'].image2}}">
+                <img class="full-image" ng-src="{{selectedProduct['0'].image2}}">
                 <p>
                     {{selectedProduct['0'].description}}
                 </p>

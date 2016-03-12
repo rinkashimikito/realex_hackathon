@@ -55,7 +55,7 @@ angular.module ( 'app.controllers', [] )
   } )
 
   .controller ( 'productCtrl', function ( $scope, $state, $rootScope, productService ) {
-  $scope.selectedProduct = productService.getProduct();
+    $scope.selectedProduct = productService.getProduct();
 
     console.log('productCtrl: ', $scope.selectedProduct);
   } )

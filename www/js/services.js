@@ -27,8 +27,6 @@ angular.module ( 'app.services', [] )
     var product = {};
 
     var setProduct = function(newObj) {
-      //var product = {};
-
       product = newObj;
     };
 
