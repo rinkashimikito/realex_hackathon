@@ -15,7 +15,7 @@
                 <!--<p>{{item.description}}</p>-->
                 <rating ng-model="selectedProduct['0'].rating" max="10" readonly="readOnly"></rating>
                 <p class="list-location">{{selectedProduct['0'].postCode}}, {{selectedProduct['0'].city}}, {{selectedProduct['0'].countryCode}}</p>
-                <span class="list-price">{{selectedProduct['0'].priceDay * 2}}<br /><span class="under-text">overall price</span></span>
+                <span class="list-price">£{{selectedProduct['0'].priceDay * numberOfDays}}<br /><span class="under-text">overall price</span></span>
                 <!--<p>{{selectedProduct['0'].description}}</p>-->
 
             </a>

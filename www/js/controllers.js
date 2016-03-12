@@ -160,8 +160,9 @@ angular.module ( 'app.controllers', [] )
 //  }
 //}] )
 
-  .controller ( 'paymentCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate', '$state', '$rootScope', 'productService','$http', function ($scope, $ionicModal, $ionicSlideBoxDelegate, $state, $rootScope, productService, $http ) {
+  .controller ( 'paymentCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate', '$state', '$rootScope', 'productService','$http', 'dateService', function ($scope, $ionicModal, $ionicSlideBoxDelegate, $state, $rootScope, productService, $http, dateService ) {
   $scope.selectedProduct = productService.getProduct ();
+  $scope.numberOfDays = dateService.getDate() || 1;
   console.log('paymentCtrl selectedProduct:', $scope.selectedProduct);
 
     $http.get('https://nkmdkkznbh.execute-api.us-west-2.amazonaws.com/integration/bookings/GBP/110').
