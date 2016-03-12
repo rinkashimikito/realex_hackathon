@@ -93,6 +93,7 @@ angular.module ( 'app.controllers', [] )
         data: $scope.item
       }).then(function successCallback(response) {
         console.log('productCreateCtrl added');
+        $state.go ( 'menu.itemAdded' );
         //$ionicHistory.clearHistory();
         // this callback will be called asynchronously
         // when the response is available
@@ -103,8 +104,11 @@ angular.module ( 'app.controllers', [] )
       });
     }
 
-} )
+  } )
+  .controller ( 'itemAddedCtrl', function ( $scope, $state ) {
+    console.log('itemAddedCtrl');
 
+  } )
   .controller ( 'resultsCtrl', function ( $scope, $state, $rootScope, productService ) {
   $scope.goToProduct = function ( productId ) {
     var selectedProduct = $rootScope.productList.filter ( function ( item ) {

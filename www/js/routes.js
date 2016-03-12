@@ -57,6 +57,16 @@ angular.module ( 'app.routes', [] )
     }
   } )
 
+    .state ( 'menu.itemAdded', {
+    url: '/item_added',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/itemAdded.html',
+        controller: 'itemAddedCtrl'
+      }
+    }
+  } )
+
     .state ( 'menu', {
     url: '/side-menu21',
     templateUrl: 'templates/menu.html',
