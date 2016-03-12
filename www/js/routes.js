@@ -48,7 +48,11 @@ angular.module ( 'app.routes', [] )
     views: {
       'side-menu21': {
         templateUrl: 'templates/productCreate.html',
-        controller: 'productCreateCtrl'
+        controller: 'productCreateCtrl',
+        resolve: {
+          categories: function(Api) {
+            return Api.categories(); }
+        }
       }
     }
   } )

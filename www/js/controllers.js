@@ -50,7 +50,58 @@ angular.module ( 'app.controllers', [] )
 
 } )
 
-  .controller ( 'productCreateCtrl', function ( $scope ) {
+  .controller ( 'productCreateCtrl', function ( $scope, $http, categories, $ionicHistory ) {
+    var nowDate = new Date ();
+    var dd = nowDate.getDate ();
+    var mm = ("0" + (nowDate.getMonth () + 1)).slice ( -2 );
+    var yyyy = nowDate.getFullYear ();
+    $scope.date = dd + "/" + mm + "/" + yyyy;
+    $scope.ownId = '2d78a88e-595f-4a3f-821d-53a52c7f3a38' + Math.floor ( (Math.random () * 100) + 1 );
+    $scope.item = {};
+    $scope.item.categoryName = categories;
+
+
+    $scope.generateUUID = function (){
+      var d = new Date().getTime();
+      if(window.performance && typeof window.performance.now === "function"){
+        d += performance.now();
+      }
+      var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = (d + Math.random()*16)%16 | 0;
+        d = Math.floor(d/16);
+        return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+      });
+      return uuid;
+    };
+
+    $scope.id =$scope.generateUUID();
+
+    $scope.saveItem = function () {
+      if ($scope.item.location.address_components) {
+        $scope.item.city = $scope.item.location.address_components['2'].long_name;
+        $scope.item.countryCode = $scope.item.location.address_components['5'].short_name;
+        $scope.item.postCode = $scope.item.location.address_components['0'].long_name;
+      }
+
+      delete $scope.item.location;
+
+      console.log(JSON.stringify($scope.item));
+
+      $http({
+        method: 'PUT',
+        url: 'https://nkmdkkznbh.execute-api.us-west-2.amazonaws.com/integration/product/' + $scope.item.id,
+        data: $scope.item
+      }).then(function successCallback(response) {
+        console.log('productCreateCtrl added');
+        $ionicHistory.clearHistory();
+        // this callback will be called asynchronously
+        // when the response is available
+      }, function errorCallback(response) {
+        console.log('productCreateCtrl fcuked');
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+      });
+    }
 
 } )
 
