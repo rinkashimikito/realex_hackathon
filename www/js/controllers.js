@@ -74,10 +74,10 @@ angular.module ( 'app.controllers', [] )
       return uuid;
     };
 
-    $scope.id =$scope.generateUUID();
+    $scope.item.id =$scope.generateUUID();
 
     $scope.saveItem = function () {
-      if ($scope.item.location.address_components) {
+      if ($scope.item.location) {
         $scope.item.city = $scope.item.location.address_components['2'].long_name;
         $scope.item.countryCode = $scope.item.location.address_components['5'].short_name;
         $scope.item.postCode = $scope.item.location.address_components['0'].long_name;
@@ -88,12 +88,12 @@ angular.module ( 'app.controllers', [] )
       console.log(JSON.stringify($scope.item));
 
       $http({
-        method: 'PUT',
+        method: 'POST',
         url: 'https://nkmdkkznbh.execute-api.us-west-2.amazonaws.com/integration/product/' + $scope.item.id,
         data: $scope.item
       }).then(function successCallback(response) {
         console.log('productCreateCtrl added');
-        $ionicHistory.clearHistory();
+        //$ionicHistory.clearHistory();
         // this callback will be called asynchronously
         // when the response is available
       }, function errorCallback(response) {
