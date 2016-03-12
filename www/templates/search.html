@@ -12,8 +12,8 @@
         <form class="list form-search animated pulse" name="searchForm">
             <label class="item item-input" name="product_name">
                 <span class="input-label">Search</span>
-                <input type="text" placeholder="What would you like?" ng-model="searchString" list="comicstitle" required>
-                <datalist id="comicstitle">
+                <input type="text" placeholder="What would you like?" ng-model="searchString" list="itemCategories" required>
+                <datalist id="itemCategories">
                     <option  data-ng-repeat="ttl in categories" value="{{ttl}}">
                 </datalist>
             </label>

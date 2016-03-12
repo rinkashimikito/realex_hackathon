@@ -1,7 +1,7 @@
 angular.module ( 'app.services', [] )
   .factory ( 'Api', function ( $http, $q ) {
     var categories = [];
-    var items = [];
+    var item = {};
 
       return {
         categories: function () {
@@ -12,13 +12,13 @@ angular.module ( 'app.services', [] )
           } );
           return dfd.promise;
         },
-        items : function ( itemId ) {
-          for (var i = 0; i < items.length; i++) {
-            if (items[i].id === parseInt ( itemId )) {
-              return items[i];
-            }
-          }
-          return null;
+        item : function ( itemId ) {
+          var dfd = $q.defer ();
+          $http.get ( "https://nkmdkkznbh.execute-api.us-west-2.amazonaws.com/integration/product" + itemId ).then ( function ( response ) {
+            item = response.data;
+            dfd.resolve ( item );
+          } );
+          return dfd.promise;
         }
       }
   } )
