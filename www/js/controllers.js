@@ -3,6 +3,9 @@ angular.module ( 'app.controllers', [] )
   .controller ( 'searchCtrl', function ( $scope, categories, $state, $http, $rootScope ) {
   $scope.categories = categories;
   $scope.location = '';
+  $scope.rating = {};
+  $scope.rating.max = 10;
+  $scope.readOnly = true;
 
   //$scope.submitSearch = function ( item, startDate, endDate, location ) {
   //  console.log ( item, startDate, endDate, location );
@@ -57,7 +60,10 @@ angular.module ( 'app.controllers', [] )
   .controller ( 'productCtrl', function ( $scope, $state, $rootScope, productService ) {
     $scope.selectedProduct = productService.getProduct();
 
-    console.log('productCtrl: ', $scope.selectedProduct);
+    $scope.askForItem = function(itemId) {
+      console.log('productCtrl asking for: ', itemId);
+      $state.go('menu.verification');
+    }
   } )
 
   .controller ( 'aboutUsCtrl', function ( $scope ) {

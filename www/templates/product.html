@@ -1,23 +1,38 @@
 <ion-view title="Product">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <div class="list card">
-            <div class="item item-avatar">
-                <img ng-src="{{selectedProduct['0'].image1}}">
+        <div class="list results-list">
+            <a class="item item-thumbnail-left" ng-click="goToProfile(item.ownerId)">
+                <img ng-src="{{item.image1}}">
+
                 <h2>{{selectedProduct['0'].name}}</h2>
+                <button class="button icon-right ion-chevron-right button-balanced item-ask" ng-click="askForItem(selectedProduct['0'].id)">Ask</button>
+                <!--<p>{{item.description}}</p>-->
+                <rating ng-model="selectedProduct['0'].rating" max="10" readonly="readOnly"></rating>
                 <p class="list-location">{{selectedProduct['0'].postCode}}, {{selectedProduct['0'].city}}, {{selectedProduct['0'].countryCode}}</p>
-            </div>
+                <span class="list-price">{{selectedProduct['0'].priceDay}}<br /><span class="under-text">price per day</span></span>
 
-            <div class="item item-body">
-                <img class="full-image" ng-src="{{selectedProduct['0'].image2}}">
-                <p>
-                    {{selectedProduct['0'].description}}
-                </p>
-                <p>
-                    <a href="#" class="subdued">1 Like</a>
-                    <a href="#" class="subdued">5 Comments</a>
-                </p>
-            </div>
-
+            </a>
+            <img class="full-image" ng-src="{{selectedProduct['0'].image2}}">
         </div>
+        <!--<div class="list card">-->
+            <!--<div class="item">-->
+                <!--&lt;!&ndash;<img ng-src="{{selectedProduct['0'].image1}}">&ndash;&gt;-->
+                <!--<h2>{{selectedProduct['0'].name}}</h2>-->
+                <!--&lt;!&ndash;<p class="list-location">{{selectedProduct['0'].postCode}}, {{selectedProduct['0'].city}}, {{selectedProduct['0'].countryCode}}</p>&ndash;&gt;-->
+            <!--</div>-->
+
+            <!--<div class="item item-body">-->
+
+                <!--<img class="full-image" ng-src="{{selectedProduct['0'].image2}}">-->
+                <!--<p>-->
+                    <!--{{selectedProduct['0'].description}}-->
+                <!--</p>-->
+                <!--<p>-->
+                    <!--<a href="#" class="subdued">1 Like</a>-->
+                    <!--<a href="#" class="subdued">5 Comments</a>-->
+                <!--</p>-->
+            <!--</div>-->
+
+        <!--</div>-->
     </ion-content>
 </ion-view>

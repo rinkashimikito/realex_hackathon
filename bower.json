@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "angular-google-places-autocomplete": "^0.2.7",
-    "robotodraft": "^1.1.0"
+    "robotodraft": "^1.1.0",
+    "ionic-rating": "^0.3.0"
   }
 }
