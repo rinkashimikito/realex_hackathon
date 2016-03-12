@@ -2,7 +2,7 @@
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <div class="list results-list">
                 <a class="item item-thumbnail-left" ng-click="goToProduct(item.id)" ng-repeat="item in productList">
-                    <img src="{{item.image1}}">
+                    <img cache-src="{{item.image1}}" circle-container-style="display:inline-block;position:absolute;left:30px;">
 
                     <h2>{{item.name}}</h2>
 

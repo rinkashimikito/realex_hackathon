@@ -5,6 +5,7 @@
     "ionic": "driftyco/ionic-bower#1.2.4"
   },
   "dependencies": {
-    "angular-google-places-autocomplete": "^0.2.7"
+    "angular-google-places-autocomplete": "^0.2.7",
+    "ionic-cache-src": "^0.7.1"
   }
 }
